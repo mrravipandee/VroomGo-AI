@@ -3,13 +3,13 @@ import Image from 'next/image';
 import { SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/nextjs';
 import { Button } from './ui/button';
 import { ArrowLeft, Car, Heart, Layout } from 'lucide-react';
+import { checkUser } from '@/lib/checkUser';
 
-interface HeadersProps {
-    isAdminPage?: boolean;
-}
 
-const Headers: React.FC<HeadersProps> = ({ isAdminPage = false }) => {
-    const isAdmin = false;  // This should be dynamically determined based on user role.
+const Headers = async ({ isAdminPage = false }) => {
+
+    const user = await checkUser();
+    const isAdmin = user?.role === 'ADMIN';
 
     return (
         <header className='fixed top-0 w-full bg-white/70 backdrop-blur-md z-50 border-b '>
