@@ -9,7 +9,7 @@ import { checkUser } from '@/lib/checkUser';
 const Headers = async ({ isAdminPage = false }) => {
 
     const user = await checkUser();
-    const isAdmin = user?.role === 'ADMIN';
+    const isAdmin = user?.role === 'ADMIN'; 
 
     return (
         <header className='fixed top-0 w-full bg-white/70 backdrop-blur-md z-50 border-b '>

@@ -1,6 +1,10 @@
 import React from 'react'
 
-const CarPage = async ({ params }) => {
+interface Params {
+  id: string;
+}
+
+const CarPage = async ({ params }: { params: Params }) => {
     const { id } = await params;
   return (
     <div className='container mx-auto my-32'>
