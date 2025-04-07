@@ -634,7 +634,7 @@ export const AddCarForm = () => {
 
                 <Button
                   type="submit"
-                  className="w-full md:w-auto"
+                  className="w-full md:w-auto hover:bg-[#194d6f] hover:text-gray-100"
                   disabled={addCarLoading}
                 >
                   {addCarLoading ? (
@@ -724,32 +724,35 @@ export const AddCarForm = () => {
                     <div>
                       <p className="font-medium">Analyzing image...</p>
                       <p className="text-sm">
-                        Gemini AI is extracting car details
+                        Gemini AI is extracting car details. Please wait
                       </p>
                     </div>
                   </div>
                 )}
 
                 <div className="bg-gray-50 p-4 rounded-md">
-                  <h3 className="font-medium mb-2">How it works</h3>
+                  <h3 className="font-medium mb-2">How It Works</h3>
                   <ol className="space-y-2 text-sm text-gray-600 list-decimal pl-4">
                     <li>Upload a clear image of the car</li>
-                    <li>Click "Extract Details" to analyze with Gemini AI</li>
-                    <li>Review the extracted information</li>
-                    <li>Fill in any missing details manually</li>
+                    <li>
+                      Click <strong>"Extract Details"</strong> to let Gemini AI
+                      analyze it
+                    </li>
+                    <li>Review the detected car details</li>
+                    <li>Manually fill in any missing info</li>
                     <li>Add the car to your inventory</li>
                   </ol>
                 </div>
 
                 <div className="bg-amber-50 p-4 rounded-md">
                   <h3 className="font-medium text-amber-800 mb-1">
-                    Tips for best results
+                    Tips for Best Results
                   </h3>
                   <ul className="space-y-1 text-sm text-amber-700">
-                    <li>• Use clear, well-lit images</li>
-                    <li>• Try to capture the entire vehicle</li>
-                    <li>• For difficult models, use multiple views</li>
-                    <li>• Always verify AI-extracted information</li>
+                    <li>Use clear, well-lit images</li>
+                    <li>Capture the full car in the frame</li>
+                    <li>Upload multiple angles if needed</li>
+                    <li>Always review and verify AI results</li>
                   </ul>
                 </div>
               </div>

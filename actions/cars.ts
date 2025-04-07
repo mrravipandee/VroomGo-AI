@@ -220,11 +220,7 @@ export async function addCar({ carData, images }) {
       success: true,
     };
   } catch (error) {
-    if (error instanceof Error) {
-      throw new Error("Error adding car:" + error.message);
-    } else {
-      throw new Error("Error adding car: An unknown error occurred");
-    }
+    throw new Error("Error adding car:" + error.message);
   }
 }
 
@@ -232,7 +228,7 @@ export async function addCar({ carData, images }) {
 export async function getCars(search = "") {
   try {
     // Build where conditions
-    const where = {};
+    let where = {};
 
     // Add search filter
     if (search) {
@@ -259,7 +255,7 @@ export async function getCars(search = "") {
     console.error("Error fetching cars:", error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : "An unknown error occurred",
+      error: error.message,
     };
   }
 }
@@ -328,13 +324,13 @@ export async function deleteCar(id) {
     console.error("Error deleting car:", error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : "An unknown error occurred",
+      error: error.message,
     };
   }
 }
 
 // Update car status or featured status
-export async function updateCarStatus(id: string, { status, featured }: { status?: string; featured?: boolean }) {
+export async function updateCarStatus(id, { status, featured }) {
   try {
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
@@ -365,7 +361,7 @@ export async function updateCarStatus(id: string, { status, featured }: { status
     console.error("Error updating car status:", error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : "An unknown error occurred",
+      error: error.message,
     };
   }
 }
