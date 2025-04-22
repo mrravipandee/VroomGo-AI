@@ -55,17 +55,7 @@ export function CarListings() {
       page,
       limit,
     });
-  }, [
-    search,
-    make,
-    bodyType,
-    fuelType,
-    transmission,
-    minPrice,
-    maxPrice,
-    sortBy,
-    page,
-  ]);
+  }, [search, make, bodyType, fuelType, transmission, minPrice, maxPrice, sortBy, page, fetchCars]);
 
   // Update URL when page changes
   useEffect(() => {

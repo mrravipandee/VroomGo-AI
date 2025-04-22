@@ -292,7 +292,7 @@ export async function getCarById(carId) {
       const savedCar = await db.userSavedCar.findUnique({
         where: {
           userId_carId: {
-            userId: dbUser.id,
+            userId: dbUser?.id,
             carId,
           },
         },
@@ -305,7 +305,7 @@ export async function getCarById(carId) {
     const existingTestDrive = await db.testDriveBooking.findFirst({
       where: {
         carId,
-        userId: dbUser.id,
+        userId: dbUser.id, 
         status: { in: ["PENDING", "CONFIRMED", "COMPLETED"] },
       },
       orderBy: {
@@ -397,6 +397,7 @@ export async function getSavedCars() {
       success: true,
       data: cars,
     };
+
   } catch (error) {
     console.error("Error fetching saved cars:", error);
     return {
